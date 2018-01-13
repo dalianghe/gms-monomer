@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -30,7 +29,7 @@
                 <!--<i class="fa fa-life-bouy" aria-hidden="true"></i>-->
                 <!--</div>-->
                 <a class="logo" style="left: 0;">
-                    <span style="font-size: 22px;">AG-Admin</span>
+                    <span style="font-size: 22px;">通用管理平台</span>
                 </a>
             </div>
             <ul class="layui-nav admin-header-item" >
@@ -40,13 +39,13 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="http://www.jianshu.com/u/86feb75a6296" target="_blank">关于我</a>
+                    <a href="http://localhost:8001/test" target="_blank">关于我</a>
                 </li>
 
                 <li class="layui-nav-item">
                     <a href="javascript:;" class="admin-header-user">
                         <img src="images/0.jpg" />
-                        <span >测试</span>
+                        <span th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username} "></span>
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
@@ -61,15 +60,18 @@
                             </a>
                         </dd>
                         <dd>
-                            <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+                            <a href="#" onclick="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
                         </dd>
                     </dl>
                 </li>
             </ul>
-            <ul class="layui-nav admin-header-item-mobile">
+            <form id="logoutForm" th:action="@{/logout}" method="post">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+            <!--<ul class="layui-nav admin-header-item-mobile">
                 <li class="layui-nav-item">
                     <a href="javascript:;"><i class="fa fa-television"></i></a>
-                    <dl class="layui-nav-child" id="menuSysMobile"> <!-- 二级菜单 -->
+                    <dl class="layui-nav-child" id="menuSysMobile"> &lt;!&ndash; 二级菜单 &ndash;&gt;
                         <dd>
                             <a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a>
                         </dd>
@@ -79,7 +81,7 @@
                     </dl>
 
                 </li>
-            </ul>
+            </ul>-->
         </div>
     </div>
     <div class="layui-side layui-bg-black" id="admin-side">
@@ -103,7 +105,7 @@
     <div class="layui-footer footer footer-demo" id="admin-footer">
         <div class="layui-main">
             <p>2017 &copy;
-                <a href="https://github.com/wxiaoqi/">github.com/wxiaoqi</a> LGPL license
+                <a href="https://github.com/dalianghe/">github.com/dalianghe</a> LGPL license
             </p>
         </div>
     </div>
@@ -124,7 +126,7 @@
         </div>
     </script>
     <!--锁屏模板 end -->
-
+    <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="layui.js"></script>
     <script type="text/javascript" src="datas/nav.js"></script>
     <script src="js/index.js"></script>
@@ -144,6 +146,9 @@
             });
             $('#about').load('README.md');
         });
+        function logout(){
+            $("#logoutForm").submit();
+        }
     </script>
 </div>
 </body>
