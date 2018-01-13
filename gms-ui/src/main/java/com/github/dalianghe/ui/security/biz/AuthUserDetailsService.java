@@ -1,7 +1,7 @@
-package com.github.dalianghe.security.biz;
+package com.github.dalianghe.ui.security.biz;
 
-import com.github.dalianghe.user.entity.SysUser;
-import com.github.dalianghe.user.service.IUserService;
+import com.github.dalianghe.admin.user.entity.UserEntity;
+import com.github.dalianghe.admin.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,7 +27,7 @@ public class AuthUserDetailsService implements UserDetailsService {
         if (StringUtils.isEmpty(username)) {
             throw new UsernameNotFoundException("用户名为空");
         }
-        SysUser sysUser = userService.getSysUserByUsername(username);
+        UserEntity sysUser = userService.getSysUserByUsername(username);
         Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
         return new org.springframework.security.core.userdetails.User(username, sysUser.getPassword(),
                 true, // 是否可用

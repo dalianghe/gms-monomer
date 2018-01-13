@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="utf-8">
     <title>后台管理系统</title>
@@ -16,7 +15,6 @@
     <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
 
 </head>
-
 <body>
 <div class="layui-layout layui-layout-admin" style="border-bottom: solid 5px #1aa094;">
     <div class="layui-header header header-demo">
@@ -33,13 +31,13 @@
                 </a>
             </div>
             <ul class="layui-nav admin-header-item" >
-                <li class="layui-nav-item">
+                <!--<li class="layui-nav-item">
                     <a href="javascript:;"><i class="fa fa-television"></i></a>
-                    <dl class="layui-nav-child" id="menuSys"> <!-- 二级菜单 -->
+                    <dl class="layui-nav-child" id="menuSys"> &lt;!&ndash; 二级菜单 &ndash;&gt;
                     </dl>
-                </li>
+                </li>-->
                 <li class="layui-nav-item">
-                    <a href="http://localhost:8001/test" target="_blank">关于我</a>
+                    <a href="http://localhost:8001/test" target="_blank">关于</a>
                 </li>
 
                 <li class="layui-nav-item">
@@ -64,24 +62,10 @@
                         </dd>
                     </dl>
                 </li>
+                <form id="logoutForm" th:action="@{/logout}" method="post">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </form>
             </ul>
-            <form id="logoutForm" th:action="@{/logout}" method="post">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            </form>
-            <!--<ul class="layui-nav admin-header-item-mobile">
-                <li class="layui-nav-item">
-                    <a href="javascript:;"><i class="fa fa-television"></i></a>
-                    <dl class="layui-nav-child" id="menuSysMobile"> &lt;!&ndash; 二级菜单 &ndash;&gt;
-                        <dd>
-                            <a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a>
-                        </dd>
-                        <dd>
-                            <a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
-                        </dd>
-                    </dl>
-
-                </li>
-            </ul>-->
         </div>
     </div>
     <div class="layui-side layui-bg-black" id="admin-side">
@@ -92,12 +76,12 @@
             <ul class="layui-tab-title">
                 <li class="layui-this">
                     <i class="fa fa-dashboard" aria-hidden="true"></i>
-                    <cite>简介</cite>
+                    <cite>首页</cite>
                 </li>
             </ul>
             <div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
                 <div class="layui-tab-item layui-show">
-                    <iframe src="about"></iframe>
+                    <!--<iframe src="about"></iframe>-->
                 </div>
             </div>
         </div>

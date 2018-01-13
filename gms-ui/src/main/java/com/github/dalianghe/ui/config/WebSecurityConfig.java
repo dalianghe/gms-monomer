@@ -1,6 +1,6 @@
-package com.github.dalianghe.config;
+package com.github.dalianghe.ui.config;
 
-import com.github.dalianghe.security.biz.AuthUserDetailsService;
+import com.github.dalianghe.ui.security.biz.AuthUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

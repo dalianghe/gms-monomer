@@ -1,4 +1,4 @@
-package com.github.dalianghe.config;
+package com.github.dalianghe.ui.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

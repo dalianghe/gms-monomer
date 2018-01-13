@@ -1,0 +1,12 @@
+server:
+  port: 8001
+
+spring:
+  thymeleaf:
+        mode: LEGACYHTML5  #  关闭thymeleaf标签检查
+        cache: false
+
+logback:
+  logdir: d:/gms-ui
+  appname: gms-ui
+
