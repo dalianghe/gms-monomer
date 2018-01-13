@@ -1,4 +1,4 @@
-package com.github.dalianghe.user.entity;
+package com.github.dalianghe.admin.user.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Created by admin on 2018/1/12.
  */
 @ToString
-public class SysUser implements Serializable {
+public class UserEntity implements Serializable {
 
     @Getter @Setter private Long id;
     @Getter @Setter private String username;
