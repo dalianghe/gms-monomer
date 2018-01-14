@@ -21,7 +21,7 @@ public class UserTest {
 
     @Test
     public void testUser() throws Exception{
-        log.info("=================="+userService.getSysUserByUsername("daliang"));
+        log.info("=================="+userService.getSysUserByUsername("admin"));
     }
 
 }
