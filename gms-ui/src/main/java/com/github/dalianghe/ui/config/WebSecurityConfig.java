@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -36,11 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //http.csrf().disable(); // 关闭csrf，开启csrf将更新LogoutFilter，仅适用HTTP POST，参考：http://blog.csdn.net/jxchallenger/article/details/58643152
     }
 
-    /**
-     * 在内存中创建一个名为 "anoy" 的用户，密码为 "pwd"，拥有 "USER" 权限
-     */
     @Override
     protected void configure(AuthenticationManagerBuilder builder) throws Exception{
+        //builder.userDetailsService(authUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
         builder.userDetailsService(authUserDetailsService);
     }
 

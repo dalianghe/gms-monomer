@@ -29,6 +29,8 @@
         <java.version>1.8</java.version>
         <spring-version>4.3.13.RELEASE</spring-version>
         <mybatis-version>3.4.5</mybatis-version>
+        <mapper-version>3.4.0</mapper-version>
+        <pagehelper-version>4.2.1</pagehelper-version>
         <mysql-connector-java-version>5.1.45</mysql-connector-java-version>
         <mybatis-spring-version>1.3.1</mybatis-spring-version>
         <lombok-version>1.16.18</lombok-version>
@@ -39,6 +41,8 @@
         <module>gms-admin</module>
         <module>gms-ui</module>
         <module>gms-test</module>
+        <module>gms-generator</module>
+        <module>gms-common</module>
     </modules>
 
     <dependencyManagement>

@@ -1,5 +1,6 @@
 package com.github.dalianghe.ui.controller.security;
 
+import com.github.dalianghe.admin.user.entity.User;
 import com.github.dalianghe.admin.user.entity.UserEntity;
 import com.github.dalianghe.admin.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class SecurityController {
 
     @GetMapping("/test")
     public String logout() throws Exception{
-        UserEntity user = userService.getSysUserByUsername("");
+        User user = userService.getSysUserByUsername("");
         System.out.println(user.toString());
         //System.out.println("==================");
         return "hahahahaha";

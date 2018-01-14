@@ -1,5 +1,6 @@
 package com.github.dalianghe.ui.security.biz;
 
+import com.github.dalianghe.admin.user.entity.User;
 import com.github.dalianghe.admin.user.entity.UserEntity;
 import com.github.dalianghe.admin.user.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,9 @@ public class AuthUserDetailsService implements UserDetailsService {
         if (StringUtils.isEmpty(username)) {
             throw new UsernameNotFoundException("用户名为空");
         }
-        UserEntity sysUser = userService.getSysUserByUsername(username);
+        User user = userService.getSysUserByUsername(username);
         Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-        return new org.springframework.security.core.userdetails.User(username, sysUser.getPassword(),
+        return new org.springframework.security.core.userdetails.User(username, user.getPassword(),
                 true, // 是否可用
                 true, // 是否过期
                 true, // 证书不过期为true
