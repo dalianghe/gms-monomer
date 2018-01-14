@@ -1,7 +1,9 @@
 package com.github.dalianghe.admin.user.service.impl;
 
-import com.github.dalianghe.admin.user.entity.UserEntity;
+import com.github.dalianghe.admin.user.entity.User;
+import com.github.dalianghe.admin.user.mapper.UserMapper;
 import com.github.dalianghe.admin.user.service.IUserService;
+import com.github.dalianghe.common.service.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +12,13 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends BaseService<UserMapper,User> implements IUserService {
 
     @Override
-    public UserEntity getSysUserByUsername(String username) {
-        log.info("username:{}",username);
-        UserEntity sysUser = new UserEntity();
-        sysUser.setUsername("admin");
-        sysUser.setPassword("admin");
-        return sysUser;
+    public User getSysUserByUsername(String username) {
+        User user = new User();
+        user.setUsername(username);
+        return mapper.selectOne(user);
     }
 
 }
