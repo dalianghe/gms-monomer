@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: gms-web
+  profiles:
+    active: dev
