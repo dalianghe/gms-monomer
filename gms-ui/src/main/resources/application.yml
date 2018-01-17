@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: gms-ui
-  profiles:
-    active: dev
