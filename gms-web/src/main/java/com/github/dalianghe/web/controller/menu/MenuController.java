@@ -2,7 +2,7 @@ package com.github.dalianghe.web.controller.menu;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.dalianghe.admin.menu.entity.Menu;
-import com.github.dalianghe.admin.menu.service.IMenuService;
+import com.github.dalianghe.admin.menu.service.MenuService;
 import com.github.dalianghe.admin.menu.vo.MenuTree;
 import com.github.dalianghe.common.utils.TreeUtil;
 import org.springframework.beans.BeanUtils;
@@ -19,11 +19,10 @@ import java.util.List;
 public class MenuController {
 
     @Autowired
-    private IMenuService menuService;
+    private MenuService menuService;
 
     @RequestMapping(value = "/admin/user/menu", method = RequestMethod.GET)
     public String getMenusByUsername(){
-
         return JSONObject.toJSONString(getMenuTree(menuService.getUserAuthorityMenuByUserId(1), 13));
     }
 

@@ -9,7 +9,6 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!--application.yml 传递参数，不能使用logback 自带的<property>标签 -->
     <springProperty scope="context" name="appname" source="logback.appname"/>
     <springProperty scope="context" name="logdir" source="logback.logdir"/>
-
     <contextName>${appname}</contextName>
 
     <!--输出到控制台 ConsoleAppender-->
@@ -84,7 +83,8 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!--输出到控制台 ConsoleAppender-->
     <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <!--格式化输出：%d:表示日期    %thread:表示线程名     %-5level:级别从左显示5个字符宽度  %msg:日志消息    %n:是换行符-->
+            <pattern>%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)</pattern>
         </encoder>
     </appender>
 

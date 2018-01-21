@@ -1,5 +1,5 @@
 var user = {
-    baseUrl: "/back/user",
+    baseUrl: "/admin/user",
     entity: "user",
     tableId: "userTable",
     toolbarId: "toolbar",
@@ -104,6 +104,7 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                 area: ['600px', '400px'],
                 maxmin: true,
                 yes: function (index) {
+                    console.log("===========yes");
                     layedit.sync(editIndex);
                     //触发表单的提交事件
                     $('form.layui-form').find('button[lay-filter=edit]').click();
@@ -119,7 +120,7 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                         elem.children('div.layui-layer-content').height($this.height() - 95);
                     });
                 },
-                success: function (layero, index) {
+                success: function (layero, index) {  // 弹出页面后的回调
                     var form = layui.form();
                     editIndex = layedit.build('description_editor');
                     form.render();
@@ -134,7 +135,6 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                                 layerTips.close(index);
                                 location.reload();
                             }
-
                         });
                         //这里可以写ajax方法提交表单
                         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
@@ -142,6 +142,7 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                     //console.log(layero, index);
                 },
                 end: function () {
+
                     addBoxIndex = -1;
                 }
             });

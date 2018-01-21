@@ -1,7 +1,7 @@
 package com.github.dalianghe.web.security;
 
 import com.github.dalianghe.admin.user.entity.User;
-import com.github.dalianghe.admin.user.service.IUserService;
+import com.github.dalianghe.admin.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +20,7 @@ import java.util.Set;
 public class AuthUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

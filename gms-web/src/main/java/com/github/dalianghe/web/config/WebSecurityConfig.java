@@ -37,19 +37,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**/*.css", "/img/**", "/**/*.js").permitAll()  // 静态资源过滤
                 .and()
                 .authorizeRequests().antMatchers("/**").authenticated();
-        //http.csrf().disable(); // 关闭csrf，开启csrf将更新LogoutFilter，仅适用HTTP POST，参考：http://blog.csdn.net/jxchallenger/article/details/58643152
+        http.csrf().disable(); // 关闭csrf，开启csrf将更新LogoutFilter，仅适用HTTP POST，参考：http://blog.csdn.net/jxchallenger/article/details/58643152
+        http.headers().frameOptions().disable();  // 解决X-Frame-Options deny
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder builder) throws Exception{
         builder.userDetailsService(authUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-    }
-
-    public static void main(String[] args){
-        //进行加密
-        BCryptPasswordEncoder encoder =new BCryptPasswordEncoder();
-        String str = encoder.encode("admin");
-        System.out.println(str);
     }
 
 }
