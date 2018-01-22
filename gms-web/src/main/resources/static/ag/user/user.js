@@ -104,7 +104,6 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                 area: ['600px', '400px'],
                 maxmin: true,
                 yes: function (index) {
-                    console.log("===========yes");
                     layedit.sync(editIndex);
                     //触发表单的提交事件
                     $('form.layui-form').find('button[lay-filter=edit]').click();
