@@ -83,7 +83,7 @@ public class User {
      * 创建人ID
      */
     @Column(name = "crt_user")
-    private Integer crtUser;
+    private String crtUser;
 
     /**
      * 创建人姓名
@@ -107,7 +107,7 @@ public class User {
      * 更新人ID
      */
     @Column(name = "upd_user")
-    private Integer updUser;
+    private String updUser;
 
     /**
      * 更新人姓名
@@ -418,7 +418,7 @@ public class User {
      *
      * @return crt_user - 创建人ID
      */
-    public Integer getCrtUser() {
+    public String getCrtUser() {
         return crtUser;
     }
 
@@ -427,7 +427,7 @@ public class User {
      *
      * @param crtUser 创建人ID
      */
-    public void setCrtUser(Integer crtUser) {
+    public void setCrtUser(String crtUser) {
         this.crtUser = crtUser;
     }
 
@@ -490,7 +490,7 @@ public class User {
      *
      * @return upd_user - 更新人ID
      */
-    public Integer getUpdUser() {
+    public String getUpdUser() {
         return updUser;
     }
 
@@ -499,7 +499,7 @@ public class User {
      *
      * @param updUser 更新人ID
      */
-    public void setUpdUser(Integer updUser) {
+    public void setUpdUser(String updUser) {
         this.updUser = updUser;
     }
 
