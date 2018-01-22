@@ -41,7 +41,6 @@
 
     <modules>
         <module>gms-admin</module>
-        <module>gms-ui</module>
         <module>gms-test</module>
         <module>gms-generator</module>
         <module>gms-common</module>

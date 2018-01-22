@@ -30,6 +30,11 @@
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
         </dependency>
+        <!-- 使用 Thymeleaf 视图模板，需要添加 thymeleaf-extras-springsecurity4 依赖，以便使用Security相关标签 -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+        </dependency>
         <!-- 引入JDBC相关配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

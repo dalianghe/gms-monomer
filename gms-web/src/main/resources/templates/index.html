@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="utf-8">
     <title>后台管理系统</title>
@@ -43,7 +44,7 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;" class="admin-header-user">
                         <img src="images/0.jpg" />
-                        <span th:text="${session.SPRING_SECURITY_CONTEXT.authentication.principal.username} "></span>
+                        <span sec:authentication="name"></span>
                     </a>
                     <dl class="layui-nav-child">
                         <dd>
@@ -63,7 +64,8 @@
                     </dl>
                 </li>
                 <form id="logoutForm" th:action="@{/logout}" method="post">
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    <!-- Thymeleaf will automatically add the CSRF token to our logout form -->
+                    <!--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
                 </form>
             </ul>
         </div>
