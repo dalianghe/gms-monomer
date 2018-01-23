@@ -1,40 +1,37 @@
 package com.github.dalianghe.web.controller.menu;
 
-import com.alibaba.fastjson.JSONObject;
 import com.github.dalianghe.admin.menu.entity.Menu;
 import com.github.dalianghe.admin.menu.service.MenuService;
-import com.github.dalianghe.admin.menu.vo.MenuTree;
-import com.github.dalianghe.common.utils.TreeUtil;
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import com.github.dalianghe.web.controller.BaseController;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import tk.mybatis.mapper.entity.Example;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by admin on 2018/1/17.
  */
-@RestController
-public class MenuController {
+@Controller
+@RequestMapping(value = "/admin/menu")
+public class MenuController extends BaseController<MenuService , Menu>{
 
-    @Autowired
-    private MenuService menuService;
 
-    @RequestMapping(value = "/admin/user/menu", method = RequestMethod.GET)
-    public String getMenusByUsername(){
-        return JSONObject.toJSONString(getMenuTree(menuService.getUserAuthorityMenuByUserId(1), 13));
+    @RequestMapping(value = "",method = RequestMethod.GET)
+    public String menu(){
+        return "menu/list";
     }
 
-
-    private List<MenuTree> getMenuTree(List<Menu> menus, int root) {
-        List<MenuTree> trees = new ArrayList<MenuTree>();
-        MenuTree node = null;
-        for (Menu menu : menus) {
-            node = new MenuTree();
-            BeanUtils.copyProperties(menu, node);
-            trees.add(node);
-        }
-        return TreeUtil.bulid(trees, root) ;
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Menu> list(String title) {
+        Example example = new Example(Menu.class);
+        if (StringUtils.isNotBlank(title))
+            example.createCriteria().andLike("title", "%" + title + "%");
+        return service.selectByExample(example);
     }
+
 }

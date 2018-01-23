@@ -1,5 +1,5 @@
 var menu = {
-    baseUrl: "/back/menu",
+    baseUrl: "/admin/menu",
     entity: "menu",
     tableId: "menuTable",
     toolbarId: "toolbar",

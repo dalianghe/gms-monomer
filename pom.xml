@@ -45,6 +45,7 @@
         <module>gms-generator</module>
         <module>gms-common</module>
         <module>gms-web</module>
+        <module>gms-www</module>
     </modules>
 
     <dependencyManagement>

@@ -91,7 +91,7 @@ debug:当此属性设置为true时，将打印出logback内部日志信息，实
     <!-- 开发环境. 多个使用逗号隔开. -->
     <springProfile name="dev">
         <!--指定最基础的日志输出级别-->
-        <root level="info">
+        <root level="debug">
             <appender-ref ref="consoleLog"/>
         </root>
     </springProfile>
