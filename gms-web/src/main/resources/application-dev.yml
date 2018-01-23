@@ -30,6 +30,7 @@ mybatis:
     basepackage: com.github.dalianghe.*.*.mapper
     xmlLocation: classpath:mappers/**/*.xml
 
+
 logback:
   logdir: d:/gms-web
   appname: gms-web

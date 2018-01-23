@@ -1,5 +1,5 @@
 var group = {
-    baseUrl: "/back/group",
+    baseUrl: "/admin/group",
     entity: "group",
     tableId: "groupTable",
     toolbarId: "toolbar",
@@ -85,7 +85,7 @@ layui.use(['form', 'layedit', 'laydate', 'element'], function () {
         layedit = layui.layedit;
 
     var element = layui.element();
-    $.get("/back/groupType/all", null, function (data) {
+    $.get("/admin/grouptype/all", null, function (data) {
         var first = data[0].id;
         allGroupItems = data;
         for (var i = 0; i < data.length; i++) {

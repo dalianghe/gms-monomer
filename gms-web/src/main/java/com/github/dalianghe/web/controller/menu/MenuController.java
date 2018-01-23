@@ -34,4 +34,9 @@ public class MenuController extends BaseController<MenuService , Menu>{
         return service.selectByExample(example);
     }
 
+    @RequestMapping(value = "/edit",method = RequestMethod.GET)
+    public String userEdit(){
+        return "menu/edit";
+    }
+
 }
